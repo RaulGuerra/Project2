@@ -16,7 +16,8 @@
 
 //Global variables
 static int dTime[2]; //stores arrival time. aTime[0] = hour, aTime[1] = minutes
-static int aTime[2]; //stores arrival time. aTime[0] = hour, aTime[1] = minutes
+static int aTime[2]; //stores departure time. dTime[0] = hour, dTime[1] = minutes
+static int totalDays; //stores total days of the trip
 
 int validatePosiInt(char str[]) //Function only accepts positive integer as valid.
 {
@@ -166,14 +167,13 @@ void getHours(char string1[])
 };
 
 
-int getTimes()
+void getTimes()
 {
     getHours("departure");
     getHours("arrival");
-    
 
-    
 
+    //----------PRINTING DEPARTURE AND ARRIVAL
     printf("Departure time is ");
 
     if(dTime[0] < 10) //print hour
@@ -198,7 +198,6 @@ int getTimes()
 
     }
 
-//printf("Arrival time is %d:%d\n", *arrivalTime, *(arrivalTime+1));
     printf("\nArrival time is ");
 
     if(aTime[0] < 10) //print hour
@@ -221,13 +220,57 @@ int getTimes()
             printf("%d", aTime[1]);
 
     }
+
+    printf("\n\n");
+
+    //---------END PRINTING DEPARTURE AND ARRIVAL
     
-
-    //printf("Departure time is %d:%d\n", *departureTime, *(departureTime+1));
-
-    return 0;
 
 
 };
 
 
+int getDays() //function asks how many days the trip was, stores in static int totalDays, and also returns the number of days.
+{
+
+    int flag = 1; //flag for input validation, stops loop
+
+    printf("How many days was your trip? ");
+
+    do
+    {
+        char str[100]; //to store input
+
+        scanf("%s", str); //asking for input
+
+        int isValid = validatePosiInt(str);
+        
+        if (isValid)
+        {
+            int input = atoi(str); //converting string to int
+            
+                //no limit
+                totalDays = input; //save total days
+                flag = 0; //exit loop
+
+                
+            
+            //with limiti  
+          /*if (input <= 7)
+            {
+                totalDays = input; //save total days
+                flag = 0; //exit loop
+            }
+            else
+                printf("\nInvalid input (no more than 7 days per trip). Try again: ");*/
+            
+        }
+        else
+            printf("\nInvalid input. Try again: ");
+
+
+    } while (flag);
+    
+    return totalDays;
+
+}
