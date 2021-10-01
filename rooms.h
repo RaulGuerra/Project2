@@ -10,6 +10,7 @@
 #ifndef ROOMS_H
 #define ROOMS_H
 
-//define functions here.
+void getConferenceFee(); // asks for and returns amount spent on conference and seminar fees
+void getHotelCost();     // asks for and return amount spend on a hotel for a single night
 
 #endif

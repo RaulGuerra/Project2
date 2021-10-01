@@ -10,6 +10,8 @@
 #ifndef MEALS_H
 #define MEALS_H
 
-//define functions here.
+void getBreakfastCost(); // asks for and returns the amount spent on a single breakfast meal
+void getLunchCost();     // asks for and returns the amount spent on a single lunch meal
+void getDinnerCost();    // asks for and returns the amount spent on a single dinner meal
 
 #endif
