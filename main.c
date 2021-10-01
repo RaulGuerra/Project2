@@ -18,8 +18,10 @@ double static hotelCost;
 
 int main(void)
 {
-  int check;
-  check = getTimes();
+  getTimes(); //times will be stored in two static arrays: aTime[] and dTime[].
+
+  int daysTest = getDays(); //days will also be stored in static int totalDays after the function call.
+  printf("\nint daysTest = %d. int static totalDays = %d", daysTest, totalDays); //testing output
 
   return 0;
   
