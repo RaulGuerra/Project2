@@ -20,6 +20,7 @@
 
 int main(void)
 {
+
   // Declare variables
   int numOfDays;
   int departureTime;
@@ -34,6 +35,7 @@ int main(void)
   float breakfastCost;
   float lunchCost;
   float dinnerCost;
+  
 
   // Get days spent and departure and arrival times from user
   numOfDays = getDays();
