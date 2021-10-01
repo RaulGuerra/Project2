@@ -4,22 +4,21 @@
 //        Kamaile Fitzgerald
 //        Moina Veron
 // File:  times.c
-// Date:  September 30, 2021 8:11PM
+// Date:  September 30, 2021 11:30PM
 //
-// Description:
+// Description: Class with methods to capture data from user. The main public methods are
+//getArrival(), getDeparture(), getDays().
 //=========================================================================================
 
 #include "header.h"
+#include "times.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
 //Global variables
-static int dTime[2]; //stores arrival time. aTime[0] = hour, aTime[1] = minutes
-static int aTime[2]; //stores departure time. dTime[0] = hour, dTime[1] = minutes
-static int totalDays; //stores total days of the trip
 
-int validatePosiInt(char str[]) //Function only accepts positive integer as valid.
+int validatePosiInt(char str[]) //method only accepts positive integer as valid.
 {
     int strLength = strlen(str);
     
@@ -60,14 +59,13 @@ int validatePosiInt(char str[]) //Function only accepts positive integer as vali
 
 }
 
-
-void getHours(char string1[])
+int getHours(char string1[]) //method asks user for input on hours of arrival or departure, depending on the parameter
 {
-    
+    int input; //to return valid input
     int invalidTime = 1; //flag to end loops. 0 = false, 1 = true
     int isValid; //flag to check user input. 0 = false, 1 = true
 
-     printf("Please type %s time.\n", string1);
+    printf("Please type %s time.\n", string1);
 
     do //asking for arrival hour in military time.
     {
@@ -82,7 +80,7 @@ void getHours(char string1[])
         if (isValid)
         {
             //checking if input is between 0 and 23
-            int input = atoi(str); //converting string to int
+            input = atoi(str); //converting string to int
 
             if (input > 23) //case in which input is invalid
             {
@@ -90,20 +88,8 @@ void getHours(char string1[])
                 invalidTime = 1; //resetting flag.
             }
             else //case in which input is valid
-            {
-                if (strcmp(string1, "arrival") == 0)
-                {
-                    aTime[0] = input; //storing hour in aTime.
-                    invalidTime = 0; //Valid input. Setting flag. Ending loop.
-                }
-                else
-                {
-                    dTime[0] = input; //storing hour in dTime.
-                    invalidTime = 0; //Valid input. Setting flag. Ending loop.
-                }
-                
-                
-            }           
+               return input;
+       
         }
         else
         {
@@ -114,125 +100,23 @@ void getHours(char string1[])
         
     } while (invalidTime);
 
-
-    invalidTime = 1; //resetting flag for next loop
-
-
-
-
-    do //asking for arrival minutes
-    {
-        printf("Input %s minutes (i.e. 0 - 59): ", string1);
-
-        char str[100]; //to store input
-
-        scanf("%s", str); //asking for input
-
-        isValid = validatePosiInt(str); //validating input, Function ensures positive integer.
-
-        if (isValid)
-        {
-            //checking if input is between 0 and 59
-            int input = atoi(str); //converting string to int
-
-            if (input > 59) //case in which input is invalid
-            {
-                printf("\nIncorrect input. Please type a number between 0 and 59.\n");
-                invalidTime = 1; //resetting flag.
-            }
-            else //case in which input is valid
-            {
-                 if (strcmp(string1, "arrival") == 0)
-                {
-                    aTime[1] = input; //storing hour in aTime.
-                    invalidTime = 0; //Valid input. Setting flag. Ending loop.
-                }
-                else
-                {
-                    dTime[1] = input; //storing hour in dTime.
-                    invalidTime = 0; //Valid input. Setting flag. Ending loop.
-                }
-            }           
-        }
-        else
-        {
-            printf("\nIncorrect input. Please type a number between 0 and 59.\n");
-            invalidTime = 1; //resetting flag.
-        }
-        
-        
-    } while (invalidTime);
-
+    return input;
 
 };
 
-
-void getTimes()
+int getArrival() // method returns arrival time.
 {
-    getHours("departure");
-    getHours("arrival");
+    return getHours("arrival");
+}
 
-
-    //----------PRINTING DEPARTURE AND ARRIVAL
-    printf("Departure time is ");
-
-    if(dTime[0] < 10) //print hour
-    {
-        printf("0%d:", dTime[0]);
-
-        if (dTime[1]<10) //print minute
-        {
-            printf("0%d", dTime[1]);
-        }
-        
-    }
-    else
-    {
-
-        printf("%d:", dTime[0]);
-
-        if (dTime[1]<10) //print minute
-            printf("0%d", dTime[1]);
-        else
-            printf("%d", dTime[1]);
-
-    }
-
-    printf("\nArrival time is ");
-
-    if(aTime[0] < 10) //print hour
-    {
-        printf("0%d:", aTime[0]);
-
-        if (aTime[1]<10) //print minute
-            printf("0%d", aTime[1]);
-        else
-            printf("%d", aTime[1]);
-    }
-    else
-    {
-
-        printf("%d:", aTime[0]);
-
-        if (aTime[1]<10) //print minute
-            printf("0%d", aTime[1]);
-        else
-            printf("%d", aTime[1]);
-
-    }
-
-    printf("\n\n");
-
-    //---------END PRINTING DEPARTURE AND ARRIVAL
-    
-
-
-};
-
+int getDeparture() //method returns departure time.
+{
+    return getHours("departure");
+}
 
 int getDays() //function asks how many days the trip was, stores in static int totalDays, and also returns the number of days.
 {
-
+    int input; //days according to user. To be returned.
     int flag = 1; //flag for input validation, stops loop
 
     printf("How many days was your trip? ");
@@ -247,22 +131,15 @@ int getDays() //function asks how many days the trip was, stores in static int t
         
         if (isValid)
         {
-            int input = atoi(str); //converting string to int
-            
-                //no limit
-                totalDays = input; //save total days
-                flag = 0; //exit loop
+            input = atoi(str); //converting string to int
 
-                
-            
-            //with limiti  
-          /*if (input <= 7)
+            if (input < 1) //
             {
-                totalDays = input; //save total days
-                flag = 0; //exit loop
+                printf("\nInvalid input. Trips must be 1 day or longer. Try again: ");
             }
             else
-                printf("\nInvalid input (no more than 7 days per trip). Try again: ");*/
+                flag = 0;
+            
             
         }
         else
@@ -271,6 +148,6 @@ int getDays() //function asks how many days the trip was, stores in static int t
 
     } while (flag);
     
-    return totalDays;
+    return input;
 
 }
