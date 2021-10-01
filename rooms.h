@@ -10,7 +10,7 @@
 #ifndef ROOMS_H
 #define ROOMS_H
 
-void getConferenceFee(); // asks for and returns amount spent on conference and seminar fees
-void getHotelCost();     // asks for and return amount spend on a hotel for a single night
+float getConferenceFee(); // asks for and returns amount spent on conference and seminar fees
+float getHotelCost();     // asks for and return amount spend on a hotel for a single night
 
 #endif
