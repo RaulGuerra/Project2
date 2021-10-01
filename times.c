@@ -11,12 +11,10 @@
 //=========================================================================================
 
 // INCLUDED FILES
-#include "header.h"
 #include "times.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "times.h"
 
 //Global variables
 
