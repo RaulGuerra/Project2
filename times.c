@@ -1,3 +1,14 @@
+//=========================================================================================
+// Name:  Raul Guerra Umana
+//        Sammy Alsadek
+//        Kamaile Fitzgerald
+//        Moina Veron
+// File:  times.c
+// Date:  September 30, 2021 8:11PM
+//
+// Description:
+//=========================================================================================
+
 #include "header.h"
 #include <stdio.h>
 #include <string.h>
