@@ -72,7 +72,7 @@ int main(void)
         dinnerCost += getDinnerCost();
       }
       // If departure is before 6PM but after 12PM only dinner is included
-      else if (departureTime < 16)
+      else if (departureTime < 18)
       {
         dinnerCost += getDinnerCost();
       }
@@ -81,7 +81,7 @@ int main(void)
     else if (i == numOfDays - 1)
     {
       // If arrival is after 7PM all meals are included
-      if (arrivalTime >= 7)
+      if (arrivalTime >= 19)
       {
         breakfastCost += getBreakfastCost();
         lunchCost += getLunchCost();

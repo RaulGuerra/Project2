@@ -5,18 +5,16 @@
 //        Moina Veron
 // File:  meals.c
 // Date:  September 30, 2021 11:42PM
-// Description: Class responsible for asking user for the price of the meals he had. 
-// getBreakfastCost(), float getLunchCost(), float getDinnerCost() are to be called by main.
+//
+// Description: File responsible for asking user for the price of the meals he had. 
+//              getBreakfastCost(), float getLunchCost(), float getDinnerCost() are to be called by main.
 //=========================================================================================
 
 // INCLUDED FILES
-#include "header.h"
-#include "meals.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-
+#include "meals.h"
 
 float getBreakfastCost() // asks for and returns the amount spent on a single breakfast meal
 {
