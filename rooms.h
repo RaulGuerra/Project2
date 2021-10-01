@@ -3,13 +3,14 @@
 //        Sammy Alsadek
 //        Kamaile Fitzgerald
 //        Moina Veron
-// File:  meals.c
-// Date:  September 30, 2021 8:11PM
-//
-// Description:
+// File:  rooms.h
+// Date:  September 30, 2021 10:52PM
 //=========================================================================================
 
-#include "header.h"
-#include "times.c"
-#include <stdio.h>
+#ifndef ROOMS_H
+#define ROOMS_H
 
+void getConferenceFee(); // asks for and returns amount spent on conference and seminar fees
+void getHotelCost();     // asks for and return amount spend on a hotel for a single night
+
+#endif
