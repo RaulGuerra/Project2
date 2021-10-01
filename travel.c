@@ -39,6 +39,7 @@ float getMilesDriven() // asks for and return the number of miles driven in a pr
    //should program ask miles driven total or by day?
    //declare & initialize variable
    float miles = 0;
+   float expense = 0;
    char user_input;
 
    printf("Did you drive a personal vehicle?");
@@ -59,7 +60,9 @@ float getMilesDriven() // asks for and return the number of miles driven in a pr
       scanf("%f", miles);
    }
 
-   return miles;
+   expense = miles * 0.27;
+
+   return expense;
 }
 
 float getParkingFee() // asks for and returns the amout spent on parking fees for a single day
