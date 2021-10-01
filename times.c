@@ -6,10 +6,9 @@
 // File:  times.c
 // Date:  September 30, 2021 11:30PM
 //
-// Description:
+// Description: Class with methods to capture data from user. The main public methods are
+//getArrival(), getDeparture(), getDays().
 //=========================================================================================
-
-
 
 #include "header.h"
 #include "times.h"

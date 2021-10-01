@@ -1,28 +1,41 @@
-//main file
+//=========================================================================================
+// Name:  Raul Guerra Umana
+//        Sammy Alsadek
+//        Kamaile Fitzgerald
+//        Moina Veron
+// File:  main.c
+// Date:  September 30, 2021 8:11PM
+//
+// Description:
+//        Program that calculates and displays the total 
+//        travel expenses of a businessperson on a trip
+//=========================================================================================
 
+// INCLUDED FILES
 #include <stdio.h>
-#include "meals.c"
-
-
-//Global variables. Track overall expenditures. Doesn't include allowance from job.
-int static totalDays;
-double static airfareCost; 
-double static carRentalCost;
-double static personalMiles; //tracks miles on personal carr only, not cost of these miles.
-double static parkingCost;
-double static taxiCost;
-double static regCost; //registration costs.
-double static hotelCost;
-
-
+#include "times.h"
+#include "travel.h"
+#include "rooms.h"
+#include "meals.h"
 
 int main(void)
 {
-  getTimes(); //times will be stored in two static arrays: aTime[] and dTime[].
 
-  int daysTest = getDays(); //days will also be stored in static int totalDays after the function call.
-  printf("\nint daysTest = %d. int static totalDays = %d", daysTest, totalDays); //testing output
+  // Declare variables
+  int numOfDays;
+  int departureTime;
+  int arrivalTime;
+  float ticketCost;
+  float carRentalCost;
+  float milesDriven;
+  float parkingFees;
+  float taxiFees;
+  float confSemFees;
+  float hotelCost;
+  float breakfastCost;
+  float lunchCost;
+  float dinnerCost;
+  
 
   return 0;
-  
 }
