@@ -4,11 +4,10 @@
 //        Kamaile Fitzgerald
 //        Moina Veron
 // File:  times.c
-
 // Date:  September 30, 2021 11:30PM
 //
 // Description: Class with methods to capture data from user. The main public methods are
-//getArrival(), getDeparture(), getDays().
+//              getArrival(), getDeparture(), getDays().
 //=========================================================================================
 
 // INCLUDED FILES
