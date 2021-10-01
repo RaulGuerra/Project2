@@ -3,10 +3,10 @@
 //        Sammy Alsadek
 //        Kamaile Fitzgerald
 //        Moina Veron
-// File:  meals.c
+// File:  rooms.c
 // Date:  September 30, 2021 11:42PM
 //=========================================================================================
 
 // INCLUDED FILES
 #include <stdio.h>
-#include "meals.h"
+#include "rooms.h"

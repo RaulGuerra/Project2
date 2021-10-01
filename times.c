@@ -4,15 +4,14 @@
 //        Kamaile Fitzgerald
 //        Moina Veron
 // File:  times.c
-// Date:  September 30, 2021 8:11PM
-//
-// Description:
+// Date:  September 30, 2021 11:42PM
 //=========================================================================================
 
-#include "header.h"
+// INCLUDED FILES
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "times.h"
 
 //Global variables
 static int dTime[2]; //stores arrival time. aTime[0] = hour, aTime[1] = minutes
