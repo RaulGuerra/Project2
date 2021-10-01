@@ -1,3 +1,15 @@
+//=========================================================================================
+// Name:  Raul Guerra Umana
+//        Sammy Alsadek
+//        Kamaile Fitzgerald
+//        Moina Veron
+// File:  meals.c
+// Date:  September 30, 2021 11:42PM
+// Description: Class responsible for asking user for the price of the meals he had. 
+// getBreakfastCost(), float getLunchCost(), float getDinnerCost() are to be called by main.
+//=========================================================================================
+
+// INCLUDED FILES
 #include "header.h"
 #include "meals.h"
 #include <stdio.h>
@@ -97,3 +109,4 @@ int validatePrice(char str[]) //validates price typed by user.
     return 0; //if str only contains valid chars and only has 1 dot at most, valid input. return false.
 
 }
+

@@ -15,4 +15,5 @@ float getLunchCost();     // asks for and returns the amount spent on a single l
 float getDinnerCost();    // asks for and returns the amount spent on a single dinner meal
 float getCost(char meal[]); //asks for and returns for cost in general.
 int validatePrice(char str[]); //validates price typed by user.
+
 #endif
