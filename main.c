@@ -13,9 +13,27 @@
 
 // INCLUDED FILES
 #include <stdio.h>
+#include "times.h"
+#include "travel.h"
+#include "rooms.h"
+#include "meals.h"
 
 int main(void)
 {
+  // Declare variables
+  int numOfDays;
+  int departureTime;
+  int arrivalTime;
+  float ticketCost;
+  float carRentalCost;
+  float milesDriven;
+  float parkingFees;
+  float taxiFees;
+  float confSemFees;
+  float hotelCost;
+  float breakfastCost;
+  float lunchCost;
+  float dinnerCost;
 
   return 0;
 }

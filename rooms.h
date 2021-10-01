@@ -3,14 +3,12 @@
 //        Sammy Alsadek
 //        Kamaile Fitzgerald
 //        Moina Veron
-// File:  
-// Date:  September 30, 2021 8:11PM
-//
-// Description:
+// File:  rooms.h
+// Date:  September 30, 2021 10:52PM
 //=========================================================================================
 
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef ROOMS_H
+#define ROOMS_H
 
 //define functions here.
 
