@@ -26,14 +26,18 @@ int main(void)
   int arrivalTime;
   float ticketCost;
   float carRentalCost;
-  float milesDriven;
-  float parkingFees;
-  float taxiFees;
+  float milesDrivenCost;
+  float parkingFees = 0;
+  float taxiFees = 0;
   float confFees;
-  float hotelCost;
-  float breakfastCost;
-  float lunchCost;
-  float dinnerCost;
+  float hotelCost = 0;
+  float breakfastCost = 0;
+  float lunchCost = 0;
+  float dinnerCost = 0;
+  float totalExpense;
+  float totalAllowableExpense;
+  float excessSpent;
+  float moneySaved;
 
   // Get days spent and departure and arrival times from user
   numOfDays = getDays();
@@ -107,6 +111,19 @@ int main(void)
       dinnerCost += getDinnerCost();
     }
   }
+
+  // Calculate total spent, allowable expenses, excess spent, and money saved
+  totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
+  totalAllowableExpense = ;
+  excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
+  moneySaved = roomSavedCost +mealsSavedCost + travelSavedCost;
+
+  // Print results 
+  printf("=============================================================\n");
+  printf("Total Expenses Incurred:     $%.2f\n", totalExpense);
+  printf("Total Allowable Expenses:    $%.2f\n", totalExpense);
+  printf("Excess Expenses Accumulated: $%.2f\n", totalExpense);
+  printf("Saved Expenses Accumulated:  $%.2f\n", totalExpense);
 
   return 0;
 }
