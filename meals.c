@@ -5,28 +5,26 @@
 //        Moina Veron
 // File:  meals.c
 // Date:  September 30, 2021 11:42PM
-// Description: Class responsible for asking user for the price of the meals he had. 
-// getBreakfastCost(), float getLunchCost(), float getDinnerCost() are to be called by main.
+//
+// Description: File responsible for asking user for the price of the meals he had.
+//              getBreakfastCost(), float getLunchCost(), float getDinnerCost() are to be called by main.
 //=========================================================================================
 
 // INCLUDED FILES
-#include "header.h"
-#include "meals.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-
+#include "meals.h"
 
 float getBreakfastCost() // asks for and returns the amount spent on a single breakfast meal
 {
     return getCost("breakfast");
 }
-float getLunchCost()     // asks for and returns the amount spent on a single lunch meal
+float getLunchCost() // asks for and returns the amount spent on a single lunch meal
 {
     return getCost("lunch");
 }
-float getDinnerCost()    // asks for and returns the amount spent on a single dinner meal
+float getDinnerCost() // asks for and returns the amount spent on a single dinner meal
 {
     return getCost("dinner");
 }
@@ -36,16 +34,15 @@ float getCost(char meal[]) //asks for and returns for cost in general.
 
     float input;
     char buff[100]; //to hold input
-    int invalid; //flag
+    int invalid;    //flag
 
-    printf("How much did you spend for %s? ",meal);
+    printf("How much did you spend for %s? ", meal);
 
     do
     {
 
         fflush(stdout);
         scanf("%s", buff);
-        
 
         invalid = validatePrice(buff); //validating buff
 
@@ -54,19 +51,15 @@ float getCost(char meal[]) //asks for and returns for cost in general.
 
     } while (invalid == 1);
 
-
     input = atof(buff); //saving price
 
-   return input;
-
+    return input;
 }
-
 
 int validatePrice(char str[]) //validates price typed by user.
 {
     int strLength = strlen(str);
     int dotCount = 0;
-
 
     for (int i = 0; i < strLength; i++)
     {
@@ -101,12 +94,9 @@ int validatePrice(char str[]) //validates price typed by user.
             break;
         }
 
-         if (dotCount > 1)
+        if (dotCount > 1)
             return 1; //if there are more than 1 dots, invalid input. return true.
-
     }
 
     return 0; //if str only contains valid chars and only has 1 dot at most, valid input. return false.
-
 }
-
