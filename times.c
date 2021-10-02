@@ -12,89 +12,28 @@
 
 // INCLUDED FILES
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "times.h"
-
-//Global variables
-
-int validatePosiInt(char str[]) //method only accepts positive integer as valid.
-{
-    int strLength = strlen(str);
-
-    for (int i = 0; i < strLength; i++)
-    {
-        char c = str[i];
-
-        switch (c) //check for every valid char
-        {
-        case '0':
-            break;
-        case '1':
-            break;
-        case '2':
-            break;
-        case '3':
-            break;
-        case '4':
-            break;
-        case '5':
-            break;
-        case '6':
-            break;
-        case '7':
-            break;
-        case '8':
-            break;
-        case '9':
-            break;
-        default:
-            return 0; //if character doesn't match any case, input is invalid. Return false.
-            break;
-        }
-    }
-
-    return 1; //if str only contains valid chars, valid input. return true.
-}
 
 int getHours(char string1[]) //method asks user for input on hours of arrival or departure, depending on the parameter
 {
-    int input;           //to return valid input
-    int invalidTime = 1; //flag to end loops. 0 = false, 1 = true
-    int isValid;         //flag to check user input. 0 = false, 1 = true
-
-    printf("Please type %s time.\n", string1);
+    int input;       //to return valid input
+    int isValid = 0; //flag to check user input. 0 = false, 1 = true
 
     do //asking for arrival hour in military time.
     {
         printf("Input %s hour in military time (i.e. 0 - 23): ", string1);
+        scanf("%d", &input);
+        fflush(stdin);
+        isValid = 1;
 
-        char str[100]; //to store input
-
-        scanf("%s", str); //asking for input
-
-        isValid = validatePosiInt(str); //validating input, Function ensures positive integer.
-
-        if (isValid)
+        if (input < 0 || input > 23)
         {
-            //checking if input is between 0 and 23
-            input = atoi(str); //converting string to int
-
-            if (input > 23) //case in which input is invalid
-            {
-                printf("\nIncorrect input. Please type a number between 0 and 23.\n");
-                invalidTime = 1; //resetting flag.
-            }
-            else //case in which input is valid
-                return input;
+            printf("\n");
+            printf("ERROR: Invalid input. Please type a number between 0 and 23.");
+            printf("\n");
+            isValid = 0;
         }
-        else
-        {
-            printf("\nIncorrect input. Please type a number between 0 and 23.\n");
-            invalidTime = 1; //resetting flag.
-        }
-
-    } while (invalidTime);
+    } while (!isValid);
 
     return input;
 };

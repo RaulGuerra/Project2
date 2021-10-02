@@ -10,7 +10,6 @@
 #ifndef TIMES_H
 #define TIMES_H
 
-int validatePosiInt(char str[]);
 int getHours(char string1[]);
 int getArrival(); // gets and returns the arrival time of the flight
 int getDeparture(); // gets and returns the departure time of the flight
