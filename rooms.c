@@ -15,8 +15,8 @@
 #include "rooms.h"
 
 // GLOBAL VARIABLES
-float roomExcessCost = 0;
-float roomSavedCost = 0;
+static float roomExcessCost = 0;
+static float roomSavedCost = 0;
 const float ROOM_ALLOWED_COST = 90.00;
 
 // asks for and returns amount spent on conference and seminar fees
