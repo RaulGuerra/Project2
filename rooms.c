@@ -27,7 +27,7 @@ float getConferenceFee()
     do
     {
         printf("How much was spent on conference and seminar fees? $");
-        scanf("%f", input);
+        scanf("%f", &input);
         fflush(stdin);
         isValid = 1;
 
@@ -53,7 +53,7 @@ float getHotelCost()
     do
     {
         printf("\tHow much was spent on a hotel room this night? $");
-        scanf("%f", input);
+        scanf("%f", &input);
         fflush(stdin);
         isValid = 1;
 

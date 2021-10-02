@@ -18,7 +18,7 @@ float getTicketCost() // asks for and return cost of round trip ticket
 
    //ask for user input
    printf("How much was the round trip ticket?\n");
-   scanf("%f", cost);
+   scanf("%f", &cost);
 
    return cost;
 }
@@ -29,7 +29,7 @@ float getCarRentalCost() // asks for and return the cost spent on a car rental
 
    //ask for user input
    printf("How much was the car rental?\n");
-   scanf("%f", cost);
+   scanf("%f", &cost);
 
    return cost;
 }
@@ -43,21 +43,21 @@ float getMilesDriven() // asks for and return the number of miles driven in a pr
    char user_input;
 
    printf("Did you drive a personal vehicle?");
-   scanf("%c", user_input);
+   scanf("%c", &user_input);
 
    //validate input
    while (user_input != 'Y' || user_input != 'y' ||
           user_input != 'N' || user_input != 'n')
    {
       printf("Invalid input. Enter 'Y' or 'N':");
-      scanf("%c", user_input);
+      scanf("%c", &user_input);
    }
 
    //ask for miles
    if (user_input == 'y' || user_input == 'Y')
    {
       printf("How many miles did you drive?\n");
-      scanf("%f", miles);
+      scanf("%f", &miles);
    }
 
    expense = miles * 0.27;
