@@ -21,7 +21,6 @@
 int validatePosiInt(char str[]) //method only accepts positive integer as valid.
 {
     int strLength = strlen(str);
-    
 
     for (int i = 0; i < strLength; i++)
     {
@@ -56,14 +55,13 @@ int validatePosiInt(char str[]) //method only accepts positive integer as valid.
     }
 
     return 1; //if str only contains valid chars, valid input. return true.
-
 }
 
 int getHours(char string1[]) //method asks user for input on hours of arrival or departure, depending on the parameter
 {
-    int input; //to return valid input
+    int input;           //to return valid input
     int invalidTime = 1; //flag to end loops. 0 = false, 1 = true
-    int isValid; //flag to check user input. 0 = false, 1 = true
+    int isValid;         //flag to check user input. 0 = false, 1 = true
 
     printf("Please type %s time.\n", string1);
 
@@ -88,20 +86,17 @@ int getHours(char string1[]) //method asks user for input on hours of arrival or
                 invalidTime = 1; //resetting flag.
             }
             else //case in which input is valid
-               return input;
-       
+                return input;
         }
         else
         {
             printf("\nIncorrect input. Please type a number between 0 and 23.\n");
             invalidTime = 1; //resetting flag.
         }
-        
-        
+
     } while (invalidTime);
 
     return input;
-
 };
 
 int getArrival() // method returns arrival time.
@@ -116,38 +111,24 @@ int getDeparture() //method returns departure time.
 
 int getDays() //function asks how many days the trip was, stores in static int totalDays, and also returns the number of days.
 {
-    int input; //days according to user. To be returned.
-    int flag = 1; //flag for input validation, stops loop
-
-    printf("How many days was your trip? ");
+    int input;         //days according to user. To be returned.
+    _Bool isValid = 0; //flag for input validation, stops loop
 
     do
     {
-        char str[100]; //to store input
+        printf("How many days was your trip? ");
+        scanf("%d", &input);
+        fflush(stdin);
+        isValid = 1;
 
-        scanf("%s", str); //asking for input
-
-        int isValid = validatePosiInt(str);
-        
-        if (isValid)
+        if (input < 1)
         {
-            input = atoi(str); //converting string to int
-
-            if (input < 1) //
-            {
-                printf("\nInvalid input. Trips must be 1 day or longer. Try again: ");
-            }
-            else
-                flag = 0;
-            
-            
+            printf("\n");
+            printf("ERROR: Invalid input. Trips must be 1 day or longer.");
+            printf("\n");
+            isValid = 0;
         }
-        else
-            printf("\nInvalid input. Try again: ");
+    } while (!isValid);
 
-
-    } while (flag);
-    
     return input;
-
 }
