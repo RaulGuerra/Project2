@@ -25,6 +25,12 @@ extern float roomExcessCost;
 extern float roomSavedCost;
 extern float travelExcessCost;
 extern float travelSavedCost;
+extern const float BREAKFAST_ALLOWED_COST;
+extern const float LUNCH_ALLOWED_COST;
+extern const float DINNER_ALLOWED_COST;
+extern const float ROOM_ALLOWED_COST;
+extern const float PARKING_ALLOWED_COST;
+extern const float TAXI_ALLOWED_COST;
 
 int main(void)
 {
@@ -128,7 +134,7 @@ int main(void)
 
   // Calculate total spent, allowable expenses, excess spent, and money saved
   totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
-  //totalAllowableExpense = ;
+  totalAllowableExpense = ticketCost + carRentalCost + milesDrivenCost + confFees + (numOfDays * (PARKING_ALLOWED_COST + TAXI_ALLOWED_COST + ROOM_ALLOWED_COST + BREAKFAST_ALLOWED_COST + LUNCH_ALLOWED_COST + DINNER_ALLOWED_COST));
   excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
   moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
 
