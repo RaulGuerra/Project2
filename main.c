@@ -116,7 +116,7 @@ int main(void)
   totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
   //totalAllowableExpense = ;
   //excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
-  //moneySaved = roomSavedCost +mealsSavedCost + travelSavedCost;
+  //moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
 
   // Print results 
   printf("=============================================================\n");
