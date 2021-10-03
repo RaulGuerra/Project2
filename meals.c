@@ -27,7 +27,7 @@ float getBreakfastCost() // asks for and returns the amount spent on a single br
 {
     float input = getCost("breakfast");
 
-    if (input > ROOM_ALLOWED_COST)
+    if (input > BREAKFAST_ALLOWED_COST)
     {
         mealsExcessCost += input - BREAKFAST_ALLOWED_COST;
     }
@@ -42,7 +42,7 @@ float getLunchCost() // asks for and returns the amount spent on a single lunch 
 {
     float input = getCost("lunch");
 
-    if (input > ROOM_ALLOWED_COST)
+    if (input > LUNCH_ALLOWED_COST)
     {
         mealsExcessCost += input - LUNCH_ALLOWED_COST;
     }
@@ -57,7 +57,7 @@ float getDinnerCost() // asks for and returns the amount spent on a single dinne
 {
     float input = getCost("dinner");
 
-    if (input > ROOM_ALLOWED_COST)
+    if (input > DINNER_ALLOWED_COST)
     {
         mealsExcessCost += input - DINNER_ALLOWED_COST;
     }

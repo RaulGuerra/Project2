@@ -55,7 +55,7 @@ float getCarRentalCost() // asks for and return the cost spent on a car rental
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (cost < 0)
         {
             printf("\n");
             printf("ERROR: Invalid input. Cost must be >= $0.00");
