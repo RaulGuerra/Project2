@@ -39,6 +39,11 @@ int main(void)
   float excessSpent;
   float moneySaved;
 
+  // Print title
+  printf("==========================================================================\n");
+  printf("=                       BUSINESS EXPENSE CALCULATOR                      =\n");
+  printf("==========================================================================\n");
+
   // Get days spent and departure and arrival times from user
   numOfDays = getDays();
   departureTime = getDeparture();
@@ -53,7 +58,7 @@ int main(void)
   // Get costs of items that are on a per day basis
   for (int i = 0; i < numOfDays; i++)
   {
-    print("\n");
+    printf("\n");
     printf("Day %d -\n", i); // Print the day the information is being input for
 
     parkingFees += getParkingFee();
@@ -119,13 +124,14 @@ int main(void)
   //excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
   //moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
 
-  // Print results 
+  // Print results
   printf("\n");
-  printf("=============================================================\n");
+  printf("==========================================================================\n");
   printf("Total Expenses Incurred:     $%.2f\n", totalExpense);
   printf("Total Allowable Expenses:    $%.2f\n", totalAllowableExpense);
   printf("Excess Expenses Accumulated: $%.2f\n", excessSpent);
   printf("Saved Expenses Accumulated:  $%.2f\n", moneySaved);
+  printf("==========================================================================\n");
 
   return 0;
 }
