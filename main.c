@@ -18,6 +18,14 @@
 #include "rooms.h"
 #include "meals.h"
 
+// EXTERNAL VARIABLES
+extern float mealsExcessCost;
+extern float mealsSavedCost;
+extern float roomExcessCost;
+extern float roomSavedCost;
+extern float travelExcessCost;
+extern float travelSavedCost;
+
 int main(void)
 {
   // Declare variables
@@ -121,8 +129,8 @@ int main(void)
   // Calculate total spent, allowable expenses, excess spent, and money saved
   totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
   //totalAllowableExpense = ;
-  //excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
-  //moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
+  excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
+  moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
 
   // Print results
   printf("\n");

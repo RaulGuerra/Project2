@@ -17,8 +17,8 @@
 #include "meals.h"
 
 // GLOBAL VARIABLES
-static float mealsExcessCost = 0;
-static float mealsSavedCost = 0;
+float mealsExcessCost = 0;
+float mealsSavedCost = 0;
 const float BREAKFAST_ALLOWED_COST = 9.00;
 const float LUNCH_ALLOWED_COST = 12.00;
 const float DINNER_ALLOWED_COST = 16.00;

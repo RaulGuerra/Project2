@@ -12,8 +12,8 @@
 #include "travel.h"
 
 // GLOBAL VARIABLES
-static float travelExcessCost = 0;
-static float travelSavedCost = 0;
+float travelExcessCost = 0;
+float travelSavedCost = 0;
 const float PARKING_ALLOWED_COST = 6.00;
 const float TAXI_ALLOWED_COST = 10.00;
 
