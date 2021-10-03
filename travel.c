@@ -58,7 +58,7 @@ float getCarRentalCost() // asks for and return the cost spent on a car rental
         if (cost < 0)
         {
             printf("\n");
-            printf("ERROR: Invalid input. Cost must be >= $0.00");
+            printf("ERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }
@@ -84,7 +84,7 @@ float getMilesDriven() // asks for and return the number of miles driven in a pr
         if (miles < 0)
         {
             printf("\n");
-            printf("ERROR: Invalid input. Miles input must be >= 0");
+            printf("ERROR: Invalid input. Miles input must be >= 0\n");
             printf("\n");
             isValid = 0;
         }
@@ -108,7 +108,7 @@ float getParkingFee() // asks for and returns the amout spent on parking fees fo
         if (input < 0)
         {
             printf("\n");
-            printf("\tERROR: Invalid input. Cost must be >= $0.00");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }
@@ -141,7 +141,7 @@ float getTaxiFee() // asks for and returns the amount spent on taxis for a singl
         if (input < 0)
         {
             printf("\n");
-            printf("\tERROR: Invalid input. Cost must be >= $0.00");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }

@@ -34,7 +34,7 @@ float getConferenceFee()
         if (input < 0)
         {
             printf("\n");
-            printf("ERROR: Invalid input. Cost must be >= $0.00");
+            printf("ERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }
@@ -60,7 +60,7 @@ float getHotelCost()
         if (input < 0)
         {
             printf("\n");
-            printf("\tERROR: Invalid input. Cost must be >= $0.00");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }

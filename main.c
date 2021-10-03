@@ -53,6 +53,7 @@ int main(void)
   // Get costs of items that are on a per day basis
   for (int i = 0; i < numOfDays; i++)
   {
+    print("\n");
     printf("Day %d -\n", i); // Print the day the information is being input for
 
     parkingFees += getParkingFee();
@@ -119,6 +120,7 @@ int main(void)
   //moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
 
   // Print results 
+  printf("\n");
   printf("=============================================================\n");
   printf("Total Expenses Incurred:     $%.2f\n", totalExpense);
   printf("Total Allowable Expenses:    $%.2f\n", totalAllowableExpense);

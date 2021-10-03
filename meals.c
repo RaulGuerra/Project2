@@ -84,7 +84,7 @@ float getCost(char meal[]) //asks for and returns for cost in general.
         if (input < 0)
         {
             printf("\n");
-            printf("\tERROR: Invalid input. Cost must be >= $0.00");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
             printf("\n");
             isValid = 0;
         }

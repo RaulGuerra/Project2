@@ -29,7 +29,7 @@ int getHours(char string1[]) //method asks user for input on hours of arrival or
         if (input < 0 || input > 23)
         {
             printf("\n");
-            printf("ERROR: Invalid input. Please type a number between 0 and 23.");
+            printf("ERROR: Invalid input. Please type a number between 0 and 23.\n");
             printf("\n");
             isValid = 0;
         }
@@ -63,7 +63,7 @@ int getDays() //function asks how many days the trip was, stores in static int t
         if (input < 1)
         {
             printf("\n");
-            printf("ERROR: Invalid input. Trips must be 1 day or longer.");
+            printf("ERROR: Invalid input. Trips must be 1 day or longer.\n");
             printf("\n");
             isValid = 0;
         }
