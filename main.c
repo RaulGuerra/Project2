@@ -47,7 +47,7 @@ int main(void)
   // Get costs of items that are not on a per day basis
   ticketCost = getTicketCost();
   carRentalCost = getCarRentalCost();
-  milesDriven = getMilesDriven();
+  milesDrivenCost = getMilesDriven() * 0.27;
   confFees = getConferenceFee();
 
   // Get costs of items that are on a per day basis
@@ -114,16 +114,16 @@ int main(void)
 
   // Calculate total spent, allowable expenses, excess spent, and money saved
   totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
-  totalAllowableExpense = ;
-  excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
-  moneySaved = roomSavedCost +mealsSavedCost + travelSavedCost;
+  //totalAllowableExpense = ;
+  //excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
+  //moneySaved = roomSavedCost +mealsSavedCost + travelSavedCost;
 
   // Print results 
   printf("=============================================================\n");
   printf("Total Expenses Incurred:     $%.2f\n", totalExpense);
-  printf("Total Allowable Expenses:    $%.2f\n", totalExpense);
-  printf("Excess Expenses Accumulated: $%.2f\n", totalExpense);
-  printf("Saved Expenses Accumulated:  $%.2f\n", totalExpense);
+  printf("Total Allowable Expenses:    $%.2f\n", totalAllowableExpense);
+  printf("Excess Expenses Accumulated: $%.2f\n", excessSpent);
+  printf("Saved Expenses Accumulated:  $%.2f\n", moneySaved);
 
   return 0;
 }
