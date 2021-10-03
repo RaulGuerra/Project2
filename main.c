@@ -59,7 +59,7 @@ int main(void)
   for (int i = 0; i < numOfDays; i++)
   {
     printf("\n");
-    printf("Day %d -\n", i); // Print the day the information is being input for
+    printf("Day %d -\n", i + 1); // Print the day the information is being input for
 
     parkingFees += getParkingFee();
     taxiFees += getTaxiFee();
