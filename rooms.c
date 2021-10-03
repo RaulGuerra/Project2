@@ -15,9 +15,9 @@
 #include "rooms.h"
 
 // GLOBAL VARIABLES
-float roomExcessCost = 0;
-float roomSavedCost = 0;
-const float ROOM_ALLOWED_COST = 90.00;
+float roomExcessCost = 0;              // excess amount spent on rooms
+float roomSavedCost = 0;               // money saved on rooms
+const float ROOM_ALLOWED_COST = 90.00; // money allowed per night for rooms
 
 // asks for and returns amount spent on conference and seminar fees
 float getConferenceFee()
@@ -31,7 +31,7 @@ float getConferenceFee()
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("ERROR: Invalid input. Cost must be >= $0.00\n");
@@ -57,7 +57,7 @@ float getHotelCost()
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
@@ -66,13 +66,13 @@ float getHotelCost()
         }
     } while (!isValid);
 
-    if (input > ROOM_ALLOWED_COST) 
+    if (input > ROOM_ALLOWED_COST)
     {
         roomExcessCost += input - ROOM_ALLOWED_COST;
     }
     else
     {
-        roomSavedCost += ROOM_ALLOWED_COST - input; 
+        roomSavedCost += ROOM_ALLOWED_COST - input;
     }
 
     return input;

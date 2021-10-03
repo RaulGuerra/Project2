@@ -10,9 +10,9 @@
 #ifndef TIMES_H
 #define TIMES_H
 
-int getHours(char string1[]);
-int getArrival(); // gets and returns the arrival time of the flight
-int getDeparture(); // gets and returns the departure time of the flight
-int getDays(); // gets and returns the number of days spent on the business trip
+int getHours(char string1[]); // gets and return hours
+int getArrival();             // gets and returns the arrival time of the flight
+int getDeparture();           // gets and returns the departure time of the flight
+int getDays();                // gets and returns the number of days spent on the business trip
 
 #endif

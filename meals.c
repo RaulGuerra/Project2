@@ -17,11 +17,11 @@
 #include "meals.h"
 
 // GLOBAL VARIABLES
-float mealsExcessCost = 0;
-float mealsSavedCost = 0;
-const float BREAKFAST_ALLOWED_COST = 9.00;
-const float LUNCH_ALLOWED_COST = 12.00;
-const float DINNER_ALLOWED_COST = 16.00;
+float mealsExcessCost = 0;                 // excess money spent on meals
+float mealsSavedCost = 0;                  // money saved on meals
+const float BREAKFAST_ALLOWED_COST = 9.00; // allowed amount per day for breakfast
+const float LUNCH_ALLOWED_COST = 12.00;    // allowed amount per day for lunch
+const float DINNER_ALLOWED_COST = 16.00;   // allowed amount per day for dinner
 
 float getBreakfastCost() // asks for and returns the amount spent on a single breakfast meal
 {
@@ -38,6 +38,7 @@ float getBreakfastCost() // asks for and returns the amount spent on a single br
 
     return input;
 }
+
 float getLunchCost() // asks for and returns the amount spent on a single lunch meal
 {
     float input = getCost("lunch");
@@ -81,7 +82,7 @@ float getCost(char meal[]) //asks for and returns for cost in general.
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("\tERROR: Invalid input. Cost must be >= $0.00\n");

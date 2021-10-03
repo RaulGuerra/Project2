@@ -35,23 +35,23 @@ extern const float TAXI_ALLOWED_COST;
 int main(void)
 {
   // Declare variables
-  int numOfDays;
-  int departureTime;
-  int arrivalTime;
-  float ticketCost;
-  float carRentalCost;
-  float milesDrivenCost;
-  float parkingFees = 0;
-  float taxiFees = 0;
-  float confFees;
-  float hotelCost = 0;
-  float breakfastCost = 0;
-  float lunchCost = 0;
-  float dinnerCost = 0;
-  float totalExpense;
-  float totalAllowableExpense;
-  float excessSpent;
-  float moneySaved;
+  int numOfDays;               // number of days on trip
+  int departureTime;           // time of departure
+  int arrivalTime;             // time of arrival
+  float ticketCost;            // cost of round trip ticket
+  float carRentalCost;         // cost of rental car used
+  float milesDrivenCost;       // number of miles driven in private vehicle
+  float parkingFees = 0;       // parking fees spent on trip
+  float taxiFees = 0;          // taxi fees spent on trip
+  float confFees;              // conference and seminar fees spent on trip
+  float hotelCost = 0;         // money spent on hotel rooms
+  float breakfastCost = 0;     // money spent on breakfast
+  float lunchCost = 0;         // money spent on lunch
+  float dinnerCost = 0;        // money spent on dinner
+  float totalExpense;          // total expenses spent on trip
+  float totalAllowableExpense; // total expenses allows for the trip
+  float excessSpent;           // excess amount spent on trip
+  float moneySaved;            // moeny that was saved on trip
 
   // Print title
   printf("==========================================================================\n");
@@ -75,6 +75,7 @@ int main(void)
     printf("\n");
     printf("Day %d -\n", i + 1); // Print the day the information is being input for
 
+    // Accumulate the expenses for the days spent on the trip
     parkingFees += getParkingFee();
     taxiFees += getTaxiFee();
     hotelCost += getHotelCost();

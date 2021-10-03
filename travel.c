@@ -12,10 +12,10 @@
 #include "travel.h"
 
 // GLOBAL VARIABLES
-float travelExcessCost = 0;
-float travelSavedCost = 0;
-const float PARKING_ALLOWED_COST = 6.00;
-const float TAXI_ALLOWED_COST = 10.00;
+float travelExcessCost = 0;              // excess amount spent on travel costs
+float travelSavedCost = 0;               // money saved on travel cost
+const float PARKING_ALLOWED_COST = 6.00; // money allowed per day on parking
+const float TAXI_ALLOWED_COST = 10.00;   // money allowed per day on taxis
 
 float getTicketCost() // asks for and return cost of round trip ticket
 {
@@ -29,7 +29,7 @@ float getTicketCost() // asks for and return cost of round trip ticket
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("ERROR: Invalid input. Cost must be >= $0.00\n");
@@ -55,7 +55,7 @@ float getCarRentalCost() // asks for and return the cost spent on a car rental
         fflush(stdin);
         isValid = 1;
 
-        if (cost < 0)
+        if (cost < 0) // output error message if invalid input
         {
             printf("\n");
             printf("ERROR: Invalid input. Cost must be >= $0.00\n");
@@ -81,15 +81,15 @@ float getMilesDriven() // asks for and return the number of miles driven in a pr
         fflush(stdin);
         isValid = 1;
 
-        if (miles < 0)
+        if (miles < 0) // output error message if invalid input
         {
             printf("\n");
             printf("ERROR: Invalid input. Miles input must be >= 0\n");
             printf("\n");
             isValid = 0;
         }
-    }while (!isValid);
-    
+    } while (!isValid);
+
     return miles;
 }
 
@@ -105,7 +105,7 @@ float getParkingFee() // asks for and returns the amout spent on parking fees fo
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
@@ -114,16 +114,16 @@ float getParkingFee() // asks for and returns the amout spent on parking fees fo
         }
     } while (!isValid);
 
-    if (input > PARKING_ALLOWED_COST) 
+    if (input > PARKING_ALLOWED_COST)
     {
         travelExcessCost += input - PARKING_ALLOWED_COST;
     }
     else
     {
-        travelSavedCost += PARKING_ALLOWED_COST - input; 
+        travelSavedCost += PARKING_ALLOWED_COST - input;
     }
 
-    return input; 
+    return input;
 }
 
 float getTaxiFee() // asks for and returns the amount spent on taxis for a single day
@@ -138,7 +138,7 @@ float getTaxiFee() // asks for and returns the amount spent on taxis for a singl
         fflush(stdin);
         isValid = 1;
 
-        if (input < 0)
+        if (input < 0) // output error message if invalid input
         {
             printf("\n");
             printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
@@ -147,14 +147,14 @@ float getTaxiFee() // asks for and returns the amount spent on taxis for a singl
         }
     } while (!isValid);
 
-    if (input > TAXI_ALLOWED_COST) 
+    if (input > TAXI_ALLOWED_COST)
     {
         travelExcessCost += input - TAXI_ALLOWED_COST;
     }
     else
     {
-        travelSavedCost += TAXI_ALLOWED_COST - input; 
+        travelSavedCost += TAXI_ALLOWED_COST - input;
     }
 
-    return input; 
+    return input;
 }
