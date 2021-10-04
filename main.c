@@ -18,22 +18,45 @@
 #include "rooms.h"
 #include "meals.h"
 
+// EXTERNAL VARIABLES
+extern float mealsExcessCost;
+extern float mealsSavedCost;
+extern float roomExcessCost;
+extern float roomSavedCost;
+extern float travelExcessCost;
+extern float travelSavedCost;
+extern const float BREAKFAST_ALLOWED_COST;
+extern const float LUNCH_ALLOWED_COST;
+extern const float DINNER_ALLOWED_COST;
+extern const float ROOM_ALLOWED_COST;
+extern const float PARKING_ALLOWED_COST;
+extern const float TAXI_ALLOWED_COST;
+
 int main(void)
 {
   // Declare variables
-  int numOfDays;
-  int departureTime;
-  int arrivalTime;
-  float ticketCost;
-  float carRentalCost;
-  float milesDriven;
-  float parkingFees;
-  float taxiFees;
-  float confFees;
-  float hotelCost;
-  float breakfastCost;
-  float lunchCost;
-  float dinnerCost;
+  int numOfDays;               // number of days on trip
+  int departureTime;           // time of departure
+  int arrivalTime;             // time of arrival
+  float ticketCost;            // cost of round trip ticket
+  float carRentalCost;         // cost of rental car used
+  float milesDrivenCost;       // number of miles driven in private vehicle
+  float parkingFees = 0;       // parking fees spent on trip
+  float taxiFees = 0;          // taxi fees spent on trip
+  float confFees;              // conference and seminar fees spent on trip
+  float hotelCost = 0;         // money spent on hotel rooms
+  float breakfastCost = 0;     // money spent on breakfast
+  float lunchCost = 0;         // money spent on lunch
+  float dinnerCost = 0;        // money spent on dinner
+  float totalExpense;          // total expenses spent on trip
+  float totalAllowableExpense; // total expenses allows for the trip
+  float excessSpent;           // excess amount spent on trip
+  float moneySaved;            // moeny that was saved on trip
+
+  // Print title
+  printf("==========================================================================\n");
+  printf("=                       BUSINESS EXPENSE CALCULATOR                      =\n");
+  printf("==========================================================================\n");
 
   // Get days spent and departure and arrival times from user
   numOfDays = getDays();
@@ -43,14 +66,16 @@ int main(void)
   // Get costs of items that are not on a per day basis
   ticketCost = getTicketCost();
   carRentalCost = getCarRentalCost();
-  milesDriven = getMilesDriven();
+  milesDrivenCost = getMilesDriven() * 0.27;
   confFees = getConferenceFee();
 
   // Get costs of items that are on a per day basis
   for (int i = 0; i < numOfDays; i++)
   {
-    printf("Day %d -\n", i); // Print the day the information is being input for
+    printf("\n");
+    printf("Day %d -\n", i + 1); // Print the day the information is being input for
 
+    // Accumulate the expenses for the days spent on the trip
     parkingFees += getParkingFee();
     taxiFees += getTaxiFee();
     hotelCost += getHotelCost();
@@ -107,6 +132,21 @@ int main(void)
       dinnerCost += getDinnerCost();
     }
   }
+
+  // Calculate total spent, allowable expenses, excess spent, and money saved
+  totalExpense = ticketCost + carRentalCost + milesDrivenCost + parkingFees + taxiFees + confFees + hotelCost + breakfastCost + lunchCost + dinnerCost;
+  totalAllowableExpense = ticketCost + carRentalCost + milesDrivenCost + confFees + (numOfDays * (PARKING_ALLOWED_COST + TAXI_ALLOWED_COST + ROOM_ALLOWED_COST + BREAKFAST_ALLOWED_COST + LUNCH_ALLOWED_COST + DINNER_ALLOWED_COST));
+  excessSpent = roomExcessCost + mealsExcessCost + travelExcessCost;
+  moneySaved = roomSavedCost + mealsSavedCost + travelSavedCost;
+
+  // Print results
+  printf("\n");
+  printf("==========================================================================\n");
+  printf("Total Expenses Incurred:     $%.2f\n", totalExpense);
+  printf("Total Allowable Expenses:    $%.2f\n", totalAllowableExpense);
+  printf("Excess Expenses Accumulated: $%.2f\n", excessSpent);
+  printf("Saved Expenses Accumulated:  $%.2f\n", moneySaved);
+  printf("==========================================================================\n");
 
   return 0;
 }

@@ -16,87 +16,80 @@
 #include <string.h>
 #include "meals.h"
 
+// GLOBAL VARIABLES
+float mealsExcessCost = 0;                 // excess money spent on meals
+float mealsSavedCost = 0;                  // money saved on meals
+const float BREAKFAST_ALLOWED_COST = 9.00; // allowed amount per day for breakfast
+const float LUNCH_ALLOWED_COST = 12.00;    // allowed amount per day for lunch
+const float DINNER_ALLOWED_COST = 16.00;   // allowed amount per day for dinner
+
 float getBreakfastCost() // asks for and returns the amount spent on a single breakfast meal
 {
-    return getCost("breakfast");
-}
-float getLunchCost() // asks for and returns the amount spent on a single lunch meal
-{
-    return getCost("lunch");
-}
-float getDinnerCost() // asks for and returns the amount spent on a single dinner meal
-{
-    return getCost("dinner");
-}
+    float input = getCost("breakfast");
 
-float getCost(char meal[]) //asks for and returns for cost in general.
-{
-
-    float input;
-    char buff[100]; //to hold input
-    int invalid;    //flag
-
-    printf("How much did you spend for %s? ", meal);
-
-    do
+    if (input > BREAKFAST_ALLOWED_COST)
     {
-
-        fflush(stdout);
-        scanf("%s", buff);
-
-        invalid = validatePrice(buff); //validating buff
-
-        if (invalid == 1)
-            printf("\nOnly digits 0-9 are allowed, and only 1 dot. Try again: ");
-
-    } while (invalid == 1);
-
-    input = atof(buff); //saving price
+        mealsExcessCost += input - BREAKFAST_ALLOWED_COST;
+    }
+    else
+    {
+        mealsSavedCost += BREAKFAST_ALLOWED_COST - input;
+    }
 
     return input;
 }
 
-int validatePrice(char str[]) //validates price typed by user.
+float getLunchCost() // asks for and returns the amount spent on a single lunch meal
 {
-    int strLength = strlen(str);
-    int dotCount = 0;
+    float input = getCost("lunch");
 
-    for (int i = 0; i < strLength; i++)
+    if (input > LUNCH_ALLOWED_COST)
     {
-
-        switch (str[i]) //check for every valid char
-        {
-        case '0':
-            break;
-        case '1':
-            break;
-        case '2':
-            break;
-        case '3':
-            break;
-        case '4':
-            break;
-        case '5':
-            break;
-        case '6':
-            break;
-        case '7':
-            break;
-        case '8':
-            break;
-        case '9':
-            break;
-        case '.':
-            dotCount++;
-            break;
-        default:
-            return 1; //if character doesn't match any case, input is invalid. Return true.
-            break;
-        }
-
-        if (dotCount > 1)
-            return 1; //if there are more than 1 dots, invalid input. return true.
+        mealsExcessCost += input - LUNCH_ALLOWED_COST;
+    }
+    else
+    {
+        mealsSavedCost += LUNCH_ALLOWED_COST - input;
     }
 
-    return 0; //if str only contains valid chars and only has 1 dot at most, valid input. return false.
+    return input;
+}
+float getDinnerCost() // asks for and returns the amount spent on a single dinner meal
+{
+    float input = getCost("dinner");
+
+    if (input > DINNER_ALLOWED_COST)
+    {
+        mealsExcessCost += input - DINNER_ALLOWED_COST;
+    }
+    else
+    {
+        mealsSavedCost += DINNER_ALLOWED_COST - input;
+    }
+
+    return input;
+}
+
+float getCost(char meal[]) //asks for and returns for cost in general.
+{
+    float input;
+    _Bool isValid = 0; //flag
+
+    do
+    {
+        printf("\tHow much did you spend for %s this day? $", meal);
+        scanf("%f", &input);
+        fflush(stdin);
+        isValid = 1;
+
+        if (input < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
+
+    return input;
 }

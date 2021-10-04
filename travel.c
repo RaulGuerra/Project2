@@ -11,66 +11,150 @@
 #include <stdio.h>
 #include "travel.h"
 
+// GLOBAL VARIABLES
+float travelExcessCost = 0;              // excess amount spent on travel costs
+float travelSavedCost = 0;               // money saved on travel cost
+const float PARKING_ALLOWED_COST = 6.00; // money allowed per day on parking
+const float TAXI_ALLOWED_COST = 10.00;   // money allowed per day on taxis
+
 float getTicketCost() // asks for and return cost of round trip ticket
 {
-   //declare & initialize variable
-   float cost = 0;
+    float input;
+    _Bool isValid = 0;
 
-   //ask for user input
-   printf("How much was the round trip ticket?\n");
-   scanf("%f", cost);
+    do
+    {
+        printf("How much was the round trip ticket? $");
+        scanf("%f", &input);
+        fflush(stdin);
+        isValid = 1;
 
-   return cost;
+        if (input < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("ERROR: Invalid input. Cost must be >= $0.00\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
+
+    return input;
 }
+
 float getCarRentalCost() // asks for and return the cost spent on a car rental
 {
-   //declare & initialize variable
-   float cost = 0;
+    //declare & initialize variable
+    float cost = 0;
+    _Bool isValid = 0;
 
-   //ask for user input
-   printf("How much was the car rental?\n");
-   scanf("%f", cost);
+    do
+    {
+        //ask for user input
+        printf("How much was spent on car rentals? $");
+        scanf("%f", &cost);
+        fflush(stdin);
+        isValid = 1;
 
-   return cost;
+        if (cost < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("ERROR: Invalid input. Cost must be >= $0.00\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
+
+    return cost;
 }
 
 float getMilesDriven() // asks for and return the number of miles driven in a private vehicle
 {
-   //should program ask miles driven total or by day?
-   //declare & initialize variable
-   float miles = 0;
-   float expense = 0;
-   char user_input;
+    //declare & initialize variable
+    float miles = 0;
+    _Bool isValid = 0;
 
-   printf("Did you drive a personal vehicle?");
-   scanf("%c", user_input);
+    do
+    {
+        //ask for user input
+        printf("How many miles did you drive? ");
+        scanf("%f", &miles);
+        fflush(stdin);
+        isValid = 1;
 
-   //validate input
-   while (user_input != 'Y' || user_input != 'y' ||
-          user_input != 'N' || user_input != 'n')
-   {
-      printf("Invalid input. Enter 'Y' or 'N':");
-      scanf("%c", user_input);
-   }
+        if (miles < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("ERROR: Invalid input. Miles input must be >= 0\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
 
-   //ask for miles
-   if (user_input == 'y' || user_input == 'Y')
-   {
-      printf("How many miles did you drive?\n");
-      scanf("%f", miles);
-   }
-
-   expense = miles * 0.27;
-
-   return expense;
+    return miles;
 }
 
 float getParkingFee() // asks for and returns the amout spent on parking fees for a single day
 {
-   return 0; //temp
+    float input;
+    _Bool isValid = 0;
+
+    do
+    {
+        printf("\tHow much was spent on a parking this day? $");
+        scanf("%f", &input);
+        fflush(stdin);
+        isValid = 1;
+
+        if (input < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
+
+    if (input > PARKING_ALLOWED_COST)
+    {
+        travelExcessCost += input - PARKING_ALLOWED_COST;
+    }
+    else
+    {
+        travelSavedCost += PARKING_ALLOWED_COST - input;
+    }
+
+    return input;
 }
 
 float getTaxiFee() // asks for and returns the amount spent on taxis for a single day
 {
-   return 0; //temp
+    float input;
+    _Bool isValid = 0;
+
+    do
+    {
+        printf("\tHow much was spent on a taxis this day? $");
+        scanf("%f", &input);
+        fflush(stdin);
+        isValid = 1;
+
+        if (input < 0) // output error message if invalid input
+        {
+            printf("\n");
+            printf("\tERROR: Invalid input. Cost must be >= $0.00\n");
+            printf("\n");
+            isValid = 0;
+        }
+    } while (!isValid);
+
+    if (input > TAXI_ALLOWED_COST)
+    {
+        travelExcessCost += input - TAXI_ALLOWED_COST;
+    }
+    else
+    {
+        travelSavedCost += TAXI_ALLOWED_COST - input;
+    }
+
+    return input;
 }
